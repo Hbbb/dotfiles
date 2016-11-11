@@ -1,3 +1,58 @@
+"================================ Enable pathogen for plugin management ================================ 
+execute pathogen#infect()
+
+"================================ Control P Fuzzy Finding ================================
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" ================================ EDITOR SETTINGS ================================
 syntax enable
 set background=dark
 colorscheme solarized
+
+" show line numbers
+set number
+
+" use system clipboard
+set clipboard=unnamed
+
+" Dont conceal any characters
+set conceallevel=0
+
+" Always show a status bar
+set laststatus=2
+
+" Make backspace work like normal (in insert mode)
+set backspace=2
+
+" Use two spaces always
+set tabstop=2
+set shiftwidth=2
+
+" convert tabs to spaces
+set expandtab
+set nowrap
+
+" Autocomplete commands (i.e :colorscheme <tab>)
+set wildmenu
+set wildmode=full
+
+
+" Make code folding great again!
+"set foldmethod=indent
+"set foldnestmax=10
+"set foldenable
+"nnoremap <space> za
+"autocmd Syntax c,cpp,vim,xml,html,xhtml, setlocal foldmethod=syntax
+"autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
+
+
+" ================================ Control P and Silver Searcher ================================
+if executable('ag')
+  " Use ag over grep because its WAY faster
+  set grepprg=ag\ --nogroup\ --nocolor
+  
+  " Use ag in CtrlP for listing files. Fast as SHIT and respect .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  let g:ctrlp_user_caching = 0
+endif
