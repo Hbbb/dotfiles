@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/hbb/vagrant_projects/github.com/vervewireless/tag-builder/config/initializers'
 let g:netrw_dirhist_2='/Users/hbb/vagrant_projects/github.com/vervewireless/tag-builder'
 let g:netrw_dirhist_3='/Users/hbb/dotfiles/files/vim/bundle'
+let g:netrw_dirhist_4='/Users/hbb/.ssh'
