@@ -32,6 +32,10 @@ set hlsearch
 " highlight search matches as you go
 set incsearch
 
+" make Ctrl-S save file
+noremap <C-s> <esc>:w<cr>i
+nnoremap <C-s> :w<cr>
+
 " ================ Turn Off Swap Files ==============
 set noswapfile
 set nobackup
