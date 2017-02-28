@@ -3,7 +3,7 @@
 	email = hborges005@gmail.com
   #email = hborges005@gmail.com  # override w/ GIT_AUTHOR/COMMITTER_EMAIL
 [core]
-	excludesfile = /Users/hbb/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [color]
   diff = auto
   status = auto
