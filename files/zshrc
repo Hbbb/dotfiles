@@ -95,6 +95,15 @@ export HIPCHAT_TOKEN="f9742873f127cf95274d38aaa42512"
 alias dirs="dirs -v"
 alias lock="/System/Library/CoreServices/\"Menu Extras\"/User.menu/Contents/Resources/CGSession -suspend"
 
+# Vagrant Aliases
+alias v-ssh="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu && vagrant ssh -c 'sudo su -l hbb'"
+alias v-provision="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu && vagrant ssh -c 'sudo su -l hbb'"
+
+# Docker Aliases
+alias dc-up="docker-compose up"
+alias dc-down="docker-compose down"
+alias dc-bash="docker-compose exec web bash"
+
 # RVM, NVM, Yarn
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source $HOME/.rvm/scripts/rvm

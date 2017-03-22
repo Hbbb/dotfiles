@@ -11,12 +11,21 @@ syntax enable
 set background=dark
 colorscheme quantum
 
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
 if has('termguicolors')
   set termguicolors
 endif
 
 " reload files changed outside of vim
 set autoread
+
+" always show current position
+set ruler
 
 " paste and indent?
 set autoindent
@@ -29,15 +38,20 @@ set copyindent
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
+
+" ------------------------- SEARCH
 " highlight search matches
 set hlsearch
 
 " highlight search matches as you go
 set incsearch
+"
+" case-sensitive search if any caps, otherwise insensitive
+set smartcase
+set ignorecase
 
-" make Ctrl-S save file
-noremap <C-s> <esc>:w<cr>i
-nnoremap <C-s> :w<cr>
+" make space search
+map <space> /
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -73,14 +87,23 @@ set shiftwidth=2
 set expandtab
 set nowrap
 
+" autoindent
+set ai
+
+" smart indent
+set si
+
 " Autocomplete commands (i.e :colorscheme <tab>)
 set wildmenu
 set wildmode=full
 
 " Syntastic recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+" disable syntastic on the statusline
+"let g:statline_syntastic = 0
 
 " User powerline fonts for airline status bar. Makes stuff look way cooler
 let g:airline_powerline_fonts = 1
@@ -89,13 +112,10 @@ let g:airline_powerline_fonts = 1
 set foldmethod=indent
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
-nnoremap <space> za
 set foldlevelstart=5    " start with fold level of 1
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 
-" case-sensitive search if any caps, otherwise insensitive
-set smartcase
 
 " ================================ Split/Pane/Tab Navigation ================================ 
 
@@ -112,14 +132,14 @@ let g:NERDTreeHijackNetrw=0
 map <c-q> :tabclose<cr>
 
 " Move between splits with less keystrokes
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Default pane switching (Ctrl + W <direction>) now moves tabs, which I use less often
-nnoremap <C-W><C-L> :tabn<cr>
-nnoremap <C-W><C-H> :tabp<cr>
+map <C-W><C-L> :tabn<cr>
+map <C-W><C-H> :tabp<cr>
 
 " Vertically maximize pane size
 map <c-m> <c-w>_
@@ -128,6 +148,8 @@ noremap <S-m> <c-w>=
 
 " control d to delete buffer but not quit the program
 map <c-d> :bd<cr>
+
+nnoremap ; :
 
 " Open new splits to the right and below.. more natural
 set splitbelow
@@ -147,3 +169,33 @@ if executable('ag')
   " no caching required because its SO DAMN FAST
   let g:ctrlp_user_caching = 0
 endif
+
+" Map auto complete of (, ", ', [
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
