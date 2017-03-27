@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/hbb/vagrant_projects/github.com/vervewireless/tag-builder/config/initializers'
 let g:netrw_dirhist_2='/Users/hbb/vagrant_projects/github.com/vervewireless/tag-builder'
 let g:netrw_dirhist_3='/Users/hbb/dotfiles/files/vim/bundle'
 let g:netrw_dirhist_4='/Users/hbb/.ssh'
 let g:netrw_dirhist_5='/Users/hbb/vagrant_projects/github.com/hbbb/dotfiles'
+let g:netrw_dirhist_6='/Users/hbb/projects/github.com/hbbb/dev-with-docker-on-ubuntu'

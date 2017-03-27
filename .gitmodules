@@ -43,3 +43,9 @@
 [submodule "files/vim/bundle/vim-surround"]
 	path = files/vim/bundle/vim-surround
 	url = git@github.com:tpope/vim-surround.git
+[submodule "files/vim/bundle/swift.vim"]
+	path = files/vim/bundle/swift.vim
+	url = git@github.com:keith/swift.vim.git
+[submodule "files/vim/bundle/ag.vim"]
+	path = files/vim/bundle/ag.vim
+	url = git@github.com:rking/ag.vim.git

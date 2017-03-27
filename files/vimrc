@@ -9,13 +9,16 @@ syntax on
 filetype plugin indent on
 syntax enable
 set background=dark
-colorscheme quantum
+colorscheme onedark
 
 augroup CursorLineOnlyInActiveWindow
   autocmd!
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 augroup END
+
+" Macvim
+set guioptions=
 
 if has('termguicolors')
   set termguicolors
@@ -59,7 +62,7 @@ set nobackup
 set nowb
 
 " macvim font/size
-set guifont=Monaco\ for\ Powerline:h13
+set guifont=Monaco\ for\ Powerline:h11
 
 " Treat ejs files as html
 au BufNewFile,BufRead *.ejs set filetype=html
