@@ -11,11 +11,11 @@ syntax enable
 set background=dark
 colorscheme onedark
 
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
+"augroup CursorLineOnlyInActiveWindow
+"  autocmd!
+"  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"  autocmd WinLeave * setlocal nocursorline
+"augroup END
 
 " Macvim
 set guioptions=
@@ -111,13 +111,12 @@ set wildmode=full
 " User powerline fonts for airline status bar. Makes stuff look way cooler
 let g:airline_powerline_fonts = 1
 
-" fold based on indent level
+" Folding
 set foldmethod=indent
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=5    " start with fold level of 1
-autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
+nnoremap F za     " make folding awesome
 
 
 " ================================ Split/Pane/Tab Navigation ================================ 
