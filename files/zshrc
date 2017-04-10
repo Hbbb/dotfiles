@@ -100,8 +100,7 @@ alias v-ssh="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu && vagra
 alias v-provision="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu && vagrant ssh -c 'sudo su -l hbb'"
 
 # Docker Aliases
-alias dc-up="docker-compose up"
-alias dc-down="docker-compose down"
+alias dc="docker-compose"
 alias dc-bash="docker-compose exec web bash"
 
 # Android Stuff
