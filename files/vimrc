@@ -9,13 +9,7 @@ syntax on
 filetype plugin indent on
 syntax enable
 set background=dark
-colorscheme onedark
-
-"augroup CursorLineOnlyInActiveWindow
-"  autocmd!
-"  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-"  autocmd WinLeave * setlocal nocursorline
-"augroup END
+colorscheme quantum
 
 " Macvim
 set guioptions=
@@ -26,9 +20,6 @@ endif
 
 " reload files changed outside of vim
 set autoread
-
-" always show current position
-set ruler
 
 " paste and indent?
 set autoindent
@@ -41,25 +32,45 @@ set copyindent
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
+" print the current command in the statsbar (under airline)
+set showcmd
 
-" ------------------------- SEARCH
-" highlight search matches
+" amazing leader mappings
+let mapleader="\<space>"
+nnoremap <leader>f /
+nnoremap <leader>F :Ag! 
+nnoremap <leader>r :%s/
+nnoremap <leader>q :q<CR>
+nmap <leader>vr :e $MYVIMRC<CR>
+nmap <leader>so :source $MYVIMRC<CR>
+nmap <leader>sc :vsp db/schema.rb<CR>
+nnoremap <leader>sub :%s///g<left><left><left>
+vnoremap <leader>sub :s///g<left><left><left>
+
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" remove any focused specs in RSpec
+nmap <leader>as :silent %s/fdescribe/describe/ge \| %s/fcontext/context/ge \| %s/fit/it/ge <CR>
+
+" ================================================ search ==============================================
+" highlight search matches (and in real time)
 set hlsearch
-
-" highlight search matches as you go
 set incsearch
-"
+
 " case-sensitive search if any caps, otherwise insensitive
-set smartcase
 set ignorecase
+set smartcase
 
-" make space search
-map <space> /
-
-" ================ Turn Off Swap Files ==============
+" Turn Off Swap Files
 set noswapfile
 set nobackup
 set nowb
+
+" show trailing whitespace
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " macvim font/size
 set guifont=Monaco\ for\ Powerline:h11
@@ -76,39 +87,38 @@ set clipboard=unnamed
 " Dont conceal any characters
 set conceallevel=0
 
-" Always show a status bar
-set laststatus=2
-
 " Make backspace work like normal (in insert mode)
-set backspace=2
+set backspace=indent,eol,start
 
 " Use two spaces always
 set tabstop=2
 set shiftwidth=2
+set shiftround " use shiftwidth multiples when using < or > to indent
+
+" show matching bracket or paren
+" But don't make the cursor jump to match (it doesn't actually jump, but
+" visually it looks like it does)
+set showmatch
+set matchtime=0
 
 " convert tabs to spaces
 set expandtab
 set nowrap
 
-" autoindent
+" smart, autoindent
 set ai
-
-" smart indent
 set si
 
 " Autocomplete commands (i.e :colorscheme <tab>)
 set wildmenu
 set wildmode=full
+set wildignore=*.swp,*.bak,*.pyc,*.class
 
-" Syntastic recommended settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+" silence is golden
+set visualbell
+set noerrorbells
 
-" disable syntastic on the statusline
-"let g:statline_syntastic = 0
-
-" User powerline fonts for airline status bar. Makes stuff look way cooler
+" User powerline fonts for airline status bar.
 let g:airline_powerline_fonts = 1
 
 " Folding
@@ -116,88 +126,54 @@ set foldmethod=indent
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=5    " start with fold level of 1
-nnoremap F za     " make folding awesome
 
 
-" ================================ Split/Pane/Tab Navigation ================================ 
-
-" new tab
-map <c-n> :tabnew<cr>
-
+" ================================================ NERDTree and filesystem ================================ ================
 " open the nerdtree
-map <c-t> :NERDTree<cr>
+map <c-t> :NERDTree<CR>
 
 " please don't auto-open the tree
 let g:NERDTreeHijackNetrw=0
 
-" close tab
-map <c-q> :tabclose<cr>
+" ================================================ Split/Pane/Tab Navigation ================================ ================
+" new tab
+map <c-n> :tabnew<CR>
 
 " Move between splits with less keystrokes
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 " Default pane switching (Ctrl + W <direction>) now moves tabs, which I use less often
-map <C-W><C-L> :tabn<cr>
-map <C-W><C-H> :tabp<cr>
+map <C-W><C-L> :tabn<CR>
+map <C-W><C-H> :tabp<CR>
 
-" Vertically maximize pane size
-map <c-m> <c-w>_
-" Restore equal pane sizes (or original)
-noremap <S-m> <c-w>= 
-
-" control d to delete buffer but not quit the program
-map <c-d> :bd<cr>
-
-nnoremap ; :
+" control d to delete buffer 
+map <c-d> :bd<CR>
 
 " Open new splits to the right and below.. more natural
 set splitbelow
 set splitright
 
-" Ack
+" ================================================ Control P and Silver Searcher ================================================
+" Search for word under cursor with Ag
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" ================================ Control P and Silver Searcher ================================
 if executable('ag')
-  " Use ag over grep because its WAY faster
+  " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-  
-  " Use ag in CtrlP for listing files. Fast as SHIT and respect .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-  " no caching required because its SO DAMN FAST
-  let g:ctrlp_user_caching = 0
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
 
+" ===================================================== Auto Commands  ===================================================
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
