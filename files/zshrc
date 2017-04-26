@@ -121,8 +121,5 @@ source $HOME/.rvm/scripts/rvm
 export PATH="$PATH:$HOME/.yarn/bin"
 
 # Add ssh agent to every session
-ssh-add
-
-# needed to remap Ctrl-S in terminal vim 
-stty -ixon
+ssh-add &> /dev/null
 
