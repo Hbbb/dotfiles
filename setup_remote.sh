@@ -1,6 +1,10 @@
 #!/bin/sh
 
-# TODO: Only copy over vim config/plugins..
+# TODO:
+# 1. Barebones .vimrc with no plugins, just keymaps and visual stuff
+# 2. no zsh.. bash will do
+# 3. global gitconfig.. maybe?
+
 echo "Symlinking vim config to home directory"
 for file in `ls files`
 do

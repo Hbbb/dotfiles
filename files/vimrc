@@ -47,11 +47,14 @@ nnoremap <leader>r :%s/
 vnoremap <leader>r :s/
 
 " zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
+nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <leader>= :wincmd =<CR>
 
 " remove any focused specs in RSpec
 nmap <leader>as :silent %s/fdescribe/describe/ge \| %s/fcontext/context/ge \| %s/fit/it/ge <CR>
+
+" convert line or selection from snake_case to camelCase
+nnoremap <leader>cc :silent :s#_\(\l\)#\u\1#g <CR>
 
 " ================================================ search ==============================================
 " highlight search matches (and in real time)
