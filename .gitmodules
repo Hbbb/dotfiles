@@ -55,3 +55,6 @@
 [submodule "files/vim/bundle/supertab"]
 	path = files/vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
+[submodule "files/vim/vim-vagrant"]
+	path = files/vim/vim-vagrant
+	url = git@github.com:hashivim/vim-vagrant.git
