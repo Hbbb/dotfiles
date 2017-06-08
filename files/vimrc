@@ -45,6 +45,7 @@ nmap <leader>so :source $MYVIMRC<CR>
 nmap <leader>sc :vsp db/schema.rb<CR>
 nnoremap <leader>r :%s/
 vnoremap <leader>r :s/
+nmap <leader>fd za
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
@@ -137,8 +138,10 @@ set visualbell
 set noerrorbells
 
 " ================================================ Airline ================================================
+set laststatus=2 " this is needed for airline to work on single buffers
+
 let g:airline_powerline_fonts = 0
-let g:airline_theme='base16'
+let g:airline_theme='bubblegum'
 let g:airline_symbols = {}
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
