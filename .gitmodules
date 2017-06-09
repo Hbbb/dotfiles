@@ -58,3 +58,12 @@
 [submodule "files/vim/vim-vagrant"]
 	path = files/vim/bundle/vim-vagrant
 	url = git@github.com:hashivim/vim-vagrant.git
+[submodule "files/vim/bundle/vim-javascript"]
+	path = files/vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "files/vim/bundle/vim-jsx"]
+	path = files/vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
+[submodule "files/vim/bundle/html5.vim"]
+	path = files/vim/bundle/html5.vim
+	url = git@github.com:othree/html5.vim.git
