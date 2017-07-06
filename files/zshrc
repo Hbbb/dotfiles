@@ -102,6 +102,7 @@ alias v-provision="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu &&
 # Docker Aliases
 alias dc="docker-compose"
 alias dc-bash="docker-compose exec web bash"
+alias dc-vbash="docker-compose --user app exec web bash"
 
 # Android Stuff
 #export JAVA_HOME=$(/usr/libexec/java_home)
