@@ -44,6 +44,7 @@ nmap <leader>sc :vsp db/schema.rb<CR>
 nnoremap <leader>r :%s/
 vnoremap <leader>r :s/
 nmap <leader>f za
+nmap <leader><space> ``
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
@@ -141,21 +142,21 @@ set noerrorbells
 " ================================================ Airline ================================================
 set laststatus=2 " this is needed for airline to work on single buffers
 
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
-let g:airline_symbols = {}
+"let g:airline_symbols = {}
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.paste = ''
-let g:airline_symbols.paste = ''
-let g:airline_symbols.paste = ''
-let g:airline_symbols.whitespace = ''
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.paste = ''
+"let g:airline_symbols.paste = ''
+"let g:airline_symbols.paste = ''
+"let g:airline_symbols.whitespace = ''
 let g:airline_section_y = ''
 
 set foldenable          " don't fold files by default on open
