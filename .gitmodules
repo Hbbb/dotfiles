@@ -67,3 +67,6 @@
 [submodule "files/vim/bundle/html5.vim"]
 	path = files/vim/bundle/html5.vim
 	url = git@github.com:othree/html5.vim.git
+[submodule "files/vim/bundle/tmuxline.vim"]
+	path = files/vim/bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim
