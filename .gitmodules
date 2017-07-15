@@ -70,3 +70,6 @@
 [submodule "files/vim/bundle/tmuxline.vim"]
 	path = files/vim/bundle/tmuxline.vim
 	url = https://github.com/edkolev/tmuxline.vim
+[submodule "files/vim/bundle/gruvbox"]
+	path = files/vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git

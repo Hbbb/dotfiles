@@ -9,15 +9,21 @@ syntax on
 filetype plugin indent on
 syntax enable
 set background=dark
-colorscheme angr
+
+" disable bold text for gruvbox
+let g:gruvbox_bold = 0
 set t_Co=256 " force 256 bit colors
+
+colorscheme gruvbox
+
 
 " Macvim
 set guioptions=
 
-if has('termguicolors')
-  set termguicolors
-endif
+set termguicolors
+set ttyfast
+set nocompatible
+set noruler
 
 " reload files changed outside of vim
 set autoread
@@ -40,7 +46,7 @@ nnoremap <leader>F :Ag!
 nnoremap <leader>q :q<CR>
 nmap <leader>vr :e $MYVIMRC<CR>
 nmap <leader>so :source $MYVIMRC<CR>
-nmap <leader>sc :vsp db/schema.rb<CR>
+nmap <leader>sc :e db/schema.rb<CR>
 nnoremap <leader>r :%s/
 vnoremap <leader>r :s/
 nmap <leader>f za
@@ -212,4 +218,14 @@ autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
+function! PasteModeToggle()
+  if(&paste == 0)
+    set paste
+  else
+    set nopaste
+  endif
+endfunc
+
+map <leader>p :call PasteModeToggle()<cr>
 
