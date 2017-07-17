@@ -16,7 +16,6 @@ set t_Co=256 " force 256 bit colors
 
 colorscheme gruvbox
 
-
 " Macvim
 set guioptions=
 
@@ -148,7 +147,8 @@ set noerrorbells
 " ================================================ Airline ================================================
 set laststatus=2 " this is needed for airline to work on single buffers
 
-let g:airline_powerline_fonts = 1
+let g:tmuxline_powerline_separators = 0
+let g:airline_powerline_fonts = 0
 let g:airline_theme='bubblegum'
 "let g:airline_symbols = {}
 let g:airline_left_sep = ''
