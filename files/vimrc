@@ -164,6 +164,7 @@ let g:airline_right_sep = ''
 "let g:airline_symbols.paste = ''
 "let g:airline_symbols.whitespace = ''
 let g:airline_section_y = ''
+let g:airline_section_z = ''
 
 set foldenable          " don't fold files by default on open
 set foldmethod=indent   " fold based on indent level
@@ -197,20 +198,9 @@ set splitright
 " Search for word under cursor with Ag
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
-let g:ctrlp_dotfiles = 1
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-
-if executable('ag')
-
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " " CtrlP settings
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-endif
+" fzf installation
+set rtp+=~/.fzf
+map <c-p> :Files<CR>
 
 
 " ===================================================== Auto Commands  ===================================================

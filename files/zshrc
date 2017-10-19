@@ -110,6 +110,9 @@ alias dc-bash="dc exec --user app web bash"
 #export PATH=$ANDROID_HOME/platform-tools:$PATH
 #export PATH=$ANDROID_HOME/tools:$PATH
 
+# Set vim keybindings in the shell
+set -o vi
+
 # GoLang Stuff
 export GOPATH=$HOME/projects/go
 export PATH=$PATH:/usr/local/go/bin
@@ -121,6 +124,7 @@ source $HOME/.rvm/scripts/rvm
 export PATH="$PATH:$HOME/.yarn/bin"
 
 # Add ssh agent to every session
+eval `ssh-agent -s` &> /dev/null
 ssh-add &> /dev/null
 
 
@@ -139,3 +143,5 @@ fi
 
 . /usr/local/bin/z.sh
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
