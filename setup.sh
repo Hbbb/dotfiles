@@ -11,6 +11,7 @@ do
     rm -rf ~/.$file
   fi
 
+  echo "Linking $file"
   ln -s $PWD/files/$file ~/.$file
 done
 

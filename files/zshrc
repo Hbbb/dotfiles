@@ -49,5 +49,5 @@ if [ ! -f /usr/local/bin/z.sh ]; then
 fi
 source /usr/local/bin/z.sh
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
