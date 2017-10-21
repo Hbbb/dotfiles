@@ -1,45 +1,58 @@
-"================================ Enable pathogen for plugin management ================================ 
 execute pathogen#infect()
 
-"================================ Control P Fuzzy Finding ================================
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" ================================ EDITOR SETTINGS ================================
 syntax on
-filetype plugin indent on
 syntax enable
-set background=dark
-
-" disable bold text for gruvbox
-let g:gruvbox_bold = 0
-set t_Co=256 " force 256 bit colors
-
+filetype plugin indent on
 colorscheme gruvbox
 
-" Macvim
-set guioptions=
-
+set number
+set background=dark
+set t_Co=256
+let g:gruvbox_bold = 0
 set termguicolors
+set guifont=Monaco\ for\ Powerline:h11
 set ttyfast
 set nocompatible
-set noruler
-
-" reload files changed outside of vim
 set autoread
-
-" paste and indent?
-set autoindent
-
-" copy the indentation
 set copyindent
-
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
 set hidden
+set ruler
 set showcmd
+set splitbelow
+set splitright
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set noswapfile
+set nobackup
+set nowb
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set backspace=indent,eol,start
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set showmatch
+set matchtime=0
+set lazyredraw
+set expandtab
+set nowrap
+set ai
+set si
+set wildmenu
+set wildmode=full
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set visualbell
+set noerrorbells
+set foldlevelstart=20
+set foldenable
+set foldmethod=indent
+set foldnestmax=10
+set rtp+=/usr/local/opt/fzf " add fzf to runtime path
+set rtp+=~/.fzf
 
-" amazing leader mappings
+" ======================== Mappings ============================ "
 let mapleader="\<space>"
 nnoremap <leader>F :Ag! 
 nnoremap <leader>q :q<CR>
@@ -50,164 +63,41 @@ nnoremap <leader>r :%s/
 vnoremap <leader>r :s/
 nmap <leader>f za
 nmap <leader><space> ``
-
-" zoom a vim pane, <C-w>= to re-balance
+map <leader>p :call PasteModeToggle()<cr>
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <leader>= :wincmd =<CR>
-
-" remove any focused specs in RSpec
 nmap <leader>as :silent %s/fdescribe/describe/ge \| %s/fcontext/context/ge \| %s/fit/it/ge <CR>
 
-" convert line or selection from snake_case to camelCase
-nnoremap <leader>cc :silent :s#_\(\l\)#\u\1#g <CR>
-
-
-" ======================== Syntastic ============================ "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_quiet_messages = {'regex': 'eslintignore|unused'}
-
-" ======================== Syntax Stuff ============================ "
-let g:jsx_ext_required = 0
-
-" ================================================ search ==============================================
-" highlight search matches (and in real time)
-set hlsearch
-set incsearch
-
-" case-sensitive search if any caps, otherwise insensitive
-set ignorecase
-set smartcase
-
-" Turn Off Swap Files
-set noswapfile
-set nobackup
-set nowb
-
-" show trailing whitespace
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-" macvim font/size
-set guifont=Monaco\ for\ Powerline:h11
-
-" Treat ejs files as html
-au BufNewFile,BufRead *.ejs set filetype=html
-
-" show line numbers
-set number
-
-" use system clipboard
-set clipboard=unnamed
-
-" Dont conceal any characters
-set conceallevel=0
-
-" Make backspace work like normal (in insert mode)
-set backspace=indent,eol,start
-
-" Use two spaces always
-set tabstop=2
-set shiftwidth=2
-set shiftround " use shiftwidth multiples when using < or > to indent
-
-" show matching bracket or paren
-" But don't make the cursor jump to match (it doesn't actually jump, but
-" visually it looks like it does)
-set showmatch
-set matchtime=0
-
-" only redraw screen when absolutely necessary
-set lazyredraw
-
-" convert tabs to spaces
-set expandtab
-set nowrap
-
-" smart, autoindent
-set ai
-set si
-
-" Autocomplete commands (i.e :colorscheme <tab>)
-set wildmenu
-set wildmode=full
-set wildignore=*.swp,*.bak,*.pyc,*.class
-
-" silence is golden
-set visualbell
-set noerrorbells
-
-" ================================================ Airline ================================================
-set laststatus=2 " this is needed for airline to work on single buffers
-
-let g:tmuxline_powerline_separators = 0
-let g:airline_powerline_fonts = 0
-let g:airline_theme='bubblegum'
-"let g:airline_symbols = {}
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-"let g:airline_symbols.linenr = ''
-"let g:airline_symbols.linenr = ''
-"let g:airline_symbols.linenr = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.paste = ''
-"let g:airline_symbols.paste = ''
-"let g:airline_symbols.paste = ''
-"let g:airline_symbols.whitespace = ''
-let g:airline_section_y = ''
-let g:airline_section_z = ''
-
-set foldenable          " don't fold files by default on open
-set foldmethod=indent   " fold based on indent level
-set foldnestmax=10      " max 10 depth
-set foldlevelstart=10    " start with fold level of 1
-map <leader>h za
-
-" ================================================ NERDTree and filesystem ================================ ================
-" open the nerdtree
 map <c-t> :NERDTree<CR>
-
-" ================================================ Split/Pane/Tab Navigation ================================ ================
-" new tab
 map <c-n> :tabnew<CR>
-
-" Move between splits with less keystrokes
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
-
-" Default pane switching (Ctrl + W <direction>) now moves tabs, which I use less often
 map <C-W><C-L> :tabn<CR>
 map <C-W><C-H> :tabp<CR>
-
-" Open new splits to the right and below.. more natural
-set splitbelow
-set splitright
-
-" ================================================ Control P and Silver Searcher ================================================
-" Search for word under cursor with Ag
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" fzf installation
-set rtp+=~/.fzf
 map <c-p> :Files<CR>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR> "Search for word under cursor with Ag
 
+" Emacs-like beginning and end of line.
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
 
-" ===================================================== Auto Commands  ===================================================
-autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+" embrace the typos!
+command! Q q
+command! Qall qall
+command! QA qall
+command! E e
+command! W w
+command! Wq wq
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+
+" Remove trailing whitespace on save for ruby files.
+"au BufWritePre *.rb :%s/\s\+$//e
+au BufNewFile,BufRead *.ejs set filetype=html
 
 function! PasteModeToggle()
   if(&paste == 0)
@@ -217,5 +107,46 @@ function! PasteModeToggle()
   endif
 endfunc
 
-map <leader>p :call PasteModeToggle()<cr>
+
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
+
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
+
+" ======================== Syntastic ============================ "
+" TODO: Get rid of syntastic and look into async option
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_quiet_messages = {'regex': 'eslintignore|unused'}
+let g:jsx_ext_required = 0
+
+" ================================================ Airline ================================================
+set laststatus=2 " this is needed for airline to work on single buffers
+let g:tmuxline_powerline_separators = 0
+let g:airline_powerline_fonts = 0
+let g:airline_theme='bubblegum'
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_y = ''
+let g:airline_section_z = ''
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.paste = ''
+"let g:airline_symbols.paste = ''
+"let g:airline_symbols.paste = ''
+"let g:airline_symbols.whitespace = ''
 
