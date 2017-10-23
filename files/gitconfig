@@ -2,13 +2,16 @@
 	name = Harrison
 	email = hborges005@gmail.com
 [core]
-	excludesfile = /Users/hbb/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=2 -RFX
+	editor = vim --noplugin
 [color]
   diff = auto
   status = auto
   branch = auto
   ui = true
+[color "diff"]
+  meta = yellow
 [branch]
   autosetupmerge = true
 [push]
@@ -22,12 +25,7 @@
   smudge = git-lfs smudge %f
   required = true
 [alias]
-  ctags = !.git/hooks/ctags
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	st = status
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	co = checkout
+	copysha = !git rev-parse HEAD | pbcopy # won't work in linux
