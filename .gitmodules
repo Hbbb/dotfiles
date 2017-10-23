@@ -58,9 +58,6 @@
 [submodule "files/vim/bundle/vim-javascript"]
 	path = files/vim/bundle/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
-[submodule "files/vim/bundle/vim-jsx"]
-	path = files/vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
 [submodule "files/vim/bundle/html5.vim"]
 	path = files/vim/bundle/html5.vim
 	url = git@github.com:othree/html5.vim.git
@@ -73,3 +70,12 @@
 [submodule "files/vim/bundle/fzf.vim"]
 	path = files/vim/bundle/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
+[submodule "files/vim/bundle/vim-polyglot"]
+	path = files/vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "files/vim/bundle/vim-commentary"]
+	path = files/vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "files/vim/bundle/vim-endwise"]
+	path = files/vim/bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
