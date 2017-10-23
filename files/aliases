@@ -1,0 +1,25 @@
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias sshconf="vim ~/.ssh/config"
+
+alias dirs="dirs -v"
+alias lock="/System/Library/CoreServices/\"Menu Extras\"/User.menu/Contents/Resources/CGSession -suspend"
+
+# Docker Aliases
+alias dc="docker-compose"
+alias dc-bash="dc exec --user app web bash"
+
+# dev-with-docker vagrant aliases
+alias v-ssh="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu && vagrant ssh -c 'sudo su -l hbb'"
+alias v-provision="cd ~/projects/github.com/adamaig/dev-with-docker-on-ubuntu && vagrant ssh -c 'sudo su -l hbb'"
+
+# shamelessly stolen from: https://github.com/r00k/dotfiles/blob/master/zsh/aliases
+alias -g G="| grep"
+alias -g L="| less"
+
+alias aliases="vim ~/.dotfiles/zsh/aliases"
+
+# Ruby/Rails stuff
+alias rc="rails c"
+alias guard="RAILS_ENV=test bundle exec guard"
+

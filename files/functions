@@ -1,0 +1,19 @@
+function branch_name {
+  val=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
+  echo "$val"
+}
+
+function git_sync_branch {
+  current_branch=`branch_name`
+  git checkout $1 && git pull
+  git checkout $current_branch
+  git merge $1
+}
+
+function g {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
