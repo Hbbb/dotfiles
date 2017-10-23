@@ -81,6 +81,8 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR> "Search for word under cursor with
 
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
+
+" FIXME: workaround needed for tmux
 imap <c-a> <c-o>^
 
 " embrace the typos!
