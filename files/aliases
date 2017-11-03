@@ -23,3 +23,5 @@ alias aliases="vim ~/.dotfiles/zsh/aliases"
 alias rc="rails c"
 alias guard="RAILS_ENV=test bundle exec guard"
 
+alias nv="NVIM_TUI_ENABLE_CURSOR_SHAPE=true nvim"
+
