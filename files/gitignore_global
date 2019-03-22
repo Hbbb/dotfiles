@@ -3,8 +3,10 @@
 .env
 .netrwhist
 .bundle
+*.map
 tags
 log/
 db/*.sqlite3
 node_modules
+.solargraph.yml
 
