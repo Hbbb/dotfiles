@@ -54,7 +54,7 @@ set mouse=a
 
 " ======================== Mappings ============================ "
 let mapleader="\<space>"
-nmap <leader>F :Ag!
+map <C-f> :Rg<cr>
 nmap <leader>q :q<CR>
 nmap <leader>vr :e $MYVIMRC<CR>
 nmap <leader>so :source $MYVIMRC<CR>
