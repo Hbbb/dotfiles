@@ -3,7 +3,7 @@ execute pathogen#infect()
 syntax on
 syntax enable
 filetype plugin indent on
-colorscheme gruvbox
+colorscheme onedark
 
 set number
 set background=dark
@@ -27,7 +27,7 @@ set noswapfile
 set nobackup
 set nowb
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=trail:.,extends:#,nbsp:.
 set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
@@ -54,18 +54,18 @@ set mouse=a
 
 " ======================== Mappings ============================ "
 let mapleader="\<space>"
-nnoremap <leader>F :Ag! 
-nnoremap <leader>q :q<CR>
+nmap <leader>F :Ag!
+nmap <leader>q :q<CR>
 nmap <leader>vr :e $MYVIMRC<CR>
 nmap <leader>so :source $MYVIMRC<CR>
 nmap <leader>sc :e db/schema.rb<CR>
-nnoremap <leader>r :%s/
-vnoremap <leader>r :s/
+nmap <leader>r :%s/
+vmap <leader>r :s/
 nmap <leader>f za
 nmap <leader><space> ``
 map <leader>p :call PasteModeToggle()<cr>
-nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
-nnoremap <leader>= :wincmd =<CR>
+nmap <leader>- :wincmd _<CR>:wincmd \|<CR>
+nmap <leader>= :wincmd =<CR>
 nmap <leader>as :silent %s/fdescribe/describe/ge \| %s/fcontext/context/ge \| %s/fit/it/ge <CR>
 
 map <c-t> :NERDTree<CR>
@@ -108,22 +108,6 @@ function! PasteModeToggle()
     set nopaste
   endif
 endfunc
-
-
-if $TMUX == ''
-  set clipboard+=unnamed
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-if $TMUX != ''
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-endif
-
-
 
 " (Hopefully) removes the delay when hitting esc in insert mode
 set ttimeout
