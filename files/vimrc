@@ -1,4 +1,17 @@
-execute pathogen#infect()
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'ervandew/supertab'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-endwise'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-surround'
+
+" Initialize plugin system
+call plug#end()
+
 
 syntax on
 syntax enable

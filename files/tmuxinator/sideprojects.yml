@@ -1,9 +1,0 @@
-name: sideprojects
-root: ~/vagrant_projects/github.com/hbbb/
-
-windows:
-  - remote-desktop:
-      root: remoteapp-desktop
-      panes:
-        - vim
-        - yarn
