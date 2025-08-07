@@ -79,6 +79,7 @@ daily() {
 # I think this is a uv thing. I actually don't know
 . "$HOME/.local/bin/env"
 
+# Load in 'extra' zshrc configs 
 for extra in "$CONFIG_DIR"/zsh/{secrets,work}.zsh(N); do
   source "$extra"
 done
