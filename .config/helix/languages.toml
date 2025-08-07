@@ -1,0 +1,4 @@
+[[language]]
+name = "markdown"
+file-types = ["mdc", "md"]
+soft-wrap.enable = true

@@ -1,0 +1,14 @@
+theme = "catppuccin_frappe"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.insert]
+"C-e" = ["normal_mode", "goto_line_end_newline", "insert_mode"]
+"C-a" = ["normal_mode", "goto_line_start", "insert_mode"]
+
+[keys.normal]
+"C-e" = ["goto_line_end_newline", "insert_mode"]
+"C-a" = ["goto_line_start", "insert_mode"]

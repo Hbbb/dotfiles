@@ -1,0 +1,23 @@
+[[keys.normal]]
+key = "C-a"
+action = "goto_line_start"
+
+[[keys.normal]]
+key = "C-e"
+action = "goto_line_end"
+
+[[keys.insert]]
+key = "C-a"
+action = "goto_line_start"
+
+[[keys.insert]]
+key = "C-e"
+action = "goto_line_end"
+
+[[keys.select]]
+key = "C-a"
+action = "goto_line_start"
+
+[[keys.select]]
+key = "C-e"
+action = "goto_line_end"
