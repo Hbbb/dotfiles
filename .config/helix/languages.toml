@@ -2,3 +2,7 @@
 name = "markdown"
 file-types = ["mdc", "md"]
 soft-wrap.enable = true
+
+[[language]]
+name = "dart"
+formatter = { command="dart", args=["format"] }
