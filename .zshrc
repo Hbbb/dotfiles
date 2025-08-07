@@ -1,24 +1,84 @@
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# History =====================================================================
+# Docs: https://zsh.sourceforge.io/Doc/Release/Options.html#History
+HISTFILE=~/.local/share/zsh/history
+SAVEHIST=100000 # Max entries saved to file.
+HISTSIZE=100000 # Max entires for in-memory history.
 
-export POLITICKER_DIR=$HOME/code/politicker
-export LOOSE_COLLECTIVE_DIR=$HOME/code/loosecollective
+setopt hist_ignore_dups  # Collapse two consecutive idential commands.
+setopt hist_find_no_dups  # Ignore duplicates when searching history.
+setopt share_history  # Share across concurrent sessions (append immediately, read from files, add timestamps).
+setopt hist_ignore_space  # Lines that begin with space are not recorded.
+setopt hist_verify  # Don't auto-execute selected history entry.
+setopt hist_ignore_all_dups  # If a history entry would be duplicate, delete older copies.
 
-alias g="git"
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# General settings ===========================================================
 
+# Default terminal editor
 export EDITOR=hx
+export VISUAL=hx
 
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+# bat highlights some languages. -p (plain) skips borders and line numbers.
+export PAGER="bat -p"
 
-source <(fzf --zsh)
+# -R sends control characters to render colours, bold, etc…
+# -X don't clear screen.
+export LESS='-RX --mouse --quit-if-one-screen'
 
-eval "$(zoxide init zsh)"
+export MANWIDTH=92
+
+# FZF config
+export FZF_DEFAULT_COMMAND='ag -g .'  # Used by: fzf-lua (neovim plugin)
+export FZF_CTRL_T_COMMAND='fd --strip-cwd-prefix'
+
+# Convenience paths
+export CONFIG_DIR="$HOME/.config"
+
+# Convenience aliases =========================================================
+alias l="ls -Ah"
+alias ll="ls -lAh"
+
+alias vimdiff="nvim -d "
+
+# Change directory into the current repo's root. Use `popd` to jump back.
+alias gitd='pushd $(git rev-parse --show-toplevel)'
+
+alias grep="grep --color=auto"
+alias ssh="TERM=xterm-256color ssh"
+alias markers="ag 'TODO:|FIXME:|XXX:' "
+alias g="git"
+alias tf="terraform"
+
+alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# Shell plugins ===============================================================
+
+# Shell prompt
 eval "$(starship init zsh)"
 
-# GOBIN path is the playground path. I put shell scripts etc in there
-export GOBIN="$HOME/.config/bin"
-export PATH="$GOBIN:$PATH"
+# z command (better cd)
+eval "$(zoxide init zsh)"
 
-flutter_bin="$HOME/.config/flutter/bin"
-export PATH="$flutter_bin:$PATH"
+# fzf
+source <(fzf --zsh)
+
+# Add ASDF shims to path
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Obsidian  ===============================================================
+export OBSIDIAN_VAULT_PATH=/Users/hborges/Documents/farmers-dog-brain
+daily() {
+	local today_note="$OBSIDIAN_VAULT_PATH/daily/$(date +%F).md"
+	[ -f $today_note ] || touch $today_note
+
+	popd $OBSIDIAN_VAULT_PATH
+	hx $today_note
+}
+
+# Random stuff ===============================================================
+
+# I think this is a uv thing. I actually don't know
+. "$HOME/.local/bin/env"
+
+for extra in "$CONFIG_DIR"/zsh/{secrets,work}.zsh(N); do
+  source "$extra"
+done

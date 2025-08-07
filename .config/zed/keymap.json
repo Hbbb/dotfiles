@@ -6,48 +6,59 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-	{
-		"bindings": {
-			"ctrl-left": "pane::GoBack",
-			"ctrl-right": "pane::GoForward",
-			"ctrl-p": "file_finder::Toggle",
-			"cmd-p": "command_palette::Toggle",
-			"ctrl-q": "pane::RevealInProjectPanel",
-			"cmd-b": "workspace::ToggleRightDock",
-			"cmd-shift-i": "workspace::ToggleLeftDock"
-		}
-	},
-	{
-		"context": "Pane",
-		"bindings": {
-			"enter": "search::SelectNextMatch"
-		}
-	},
-	{
-		"context": "AssistantPanel",
-		"bindings": {
-			"enter": "search::SelectNextMatch",
-			"shift-enter": "search::SelectPreviousMatch"
-		}
-	},
-	{
-		"context": "BufferSearchBar",
-		"bindings": {
-			"enter": "search::SelectNextMatch",
-			"shift-enter": "search::SelectPreviousMatch"
-		}
-	},
-	{
-		"context": "Pane",
-		"bindings": {
-			"enter": "search::SelectNextMatch",
-			"shift-enter": "search::SelectPreviousMatch"
-		}
-	},
-	{
-		"context": "vim_mode == visual",
-		"bindings": {
-			"shift-s": ["vim::PushAddSurrounds", {}]
-		}
-	}
+  {
+    "bindings": {
+      "ctrl-left": "pane::GoBack",
+      "ctrl-right": "pane::GoForward",
+      "ctrl-p": "file_finder::Toggle",
+      "cmd-p": "command_palette::Toggle",
+      "ctrl-q": "pane::RevealInProjectPanel",
+      "cmd-r": "outline::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "enter": "search::SelectNextMatch"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {
+      "enter": "search::SelectNextMatch",
+      "shift-enter": "search::SelectPreviousMatch"
+    }
+  },
+  {
+    "context": "BufferSearchBar",
+    "bindings": {
+      "enter": "search::SelectNextMatch",
+      "shift-enter": "search::SelectPreviousMatch"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "enter": "search::SelectNextMatch",
+      "shift-enter": "search::SelectPreviousMatch"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": ["vim::PushAddSurrounds", {}]
+    }
+  }
 ]

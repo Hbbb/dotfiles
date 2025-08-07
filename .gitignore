@@ -1,4 +1,2 @@
-.env
+.claude
 .DS_Store
-node_modules
-__debug_bin*

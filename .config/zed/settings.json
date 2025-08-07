@@ -7,13 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-	"disable_ai": true,
-	"debugger": {
-		"dock": "right"
-	},
 	"icon_theme": "Catppuccin Latte",
 	"edit_predictions": {
-		"disabled_globs": [],
+		"disabled_globs": ["*.mdc", "*.md"],
 		"mode": "subtle",
 		"copilot": {
 			"proxy": null,
@@ -23,27 +19,28 @@
 	},
 	"show_edit_predictions": true,
 	"autosave": "on_focus_change",
-	/* Duplicated key auto-commented: "agent": {
+	"agent": {
 		"always_allow_tool_actions": true,
 		"default_profile": "write",
 		"default_model": {
 			"provider": "anthropic",
 			"model": "claude-sonnet-4-thinking-latest"
-		},
-		"version": "2"
-	}, */
+		}
+	},
 	"vim_mode": true,
+	"helix_mode": false,
 	"vim": {
+		"use_system_clipboard": "on_yank",
 		"cursor_shape": {
 			"normal": "block",
 			"insert": "bar",
 			"visual": "underline",
 			"replace": "hollow"
-		},
-		"use_system_clipboard": "on_yank"
+		}
 	},
-	"ui_font_size": 18,
-	"buffer_font_size": 16,
+	"ui_font_size": 16,
+	"buffer_font_size": 15,
+	// "buffer_font_family": "Hack",
 	"git": {
 		"git_gutter": null,
 		"gutter_debounce": null,
@@ -53,7 +50,7 @@
 	},
 	"theme": {
 		"mode": "system",
-		"light": "Kanso Pearl (No italics)",
+		"light": "One Light",
 		"dark": "Ayu Dark"
 	},
 	"hard_tabs": true,
@@ -67,88 +64,8 @@
 			"formatter": "language_server",
 			"format_on_save": "on"
 		},
-		"Templ": {
-			"format_on_save": "on",
-			"language_servers": [
-				"tailwindcss-language-server",
-				"vscode-html-language-server",
-				"emmet-language-server"
-			],
-			"inlay_hints": {
-				"enabled": true
-			}
-		},
-		"Ruby": {
-			"enable_language_server": false
+		"YAML": {
+			"hard_tabs": false
 		}
-	},
-	"lsp": {
-		"tailwindcss-language-server": {
-			"settings": {
-				"includeLanguages": {
-					"templ": "html",
-					"Templ": "html"
-				}
-			}
-		},
-		"vscode-html-language-server": {
-			"settings": {
-				"html": {
-					"validate": {
-						"scripts": true,
-						"styles": true
-					},
-					"format": {
-						"wrapLineLength": 120,
-						"unformatted": "wbr,code,pre"
-					},
-					"includeLanguages": {
-						"templ": "html",
-						"Templ": "html"
-					}
-				}
-			}
-		}
-	},
-	"project_panel": {
-		"dock": "right"
-	},
-	"agent": {
-		"profiles": {
-			"write": {
-				"name": "Write",
-				"tools": {
-					"copy_path": true,
-					"create_directory": true,
-					"delete_path": true,
-					"diagnostics": true,
-					"edit_file": true,
-					"fetch": true,
-					"list_directory": true,
-					"move_path": true,
-					"now": true,
-					"find_path": true,
-					"read_file": true,
-					"grep": true,
-					"terminal": true,
-					"thinking": true,
-					"web_search": true,
-					"open": true
-				},
-				"enable_all_context_servers": true,
-				"context_servers": {}
-			}
-		},
-		"default_model": {
-			"provider": "anthropic",
-			"model": "claude-sonnet-4-thinking-latest"
-		},
-		"default_profile": "write",
-		"always_allow_tool_actions": true,
-		"dock": "left",
-		"button": false
-	},
-	"title_bar": {
-		"show_sign_in": false
 	}
 }
