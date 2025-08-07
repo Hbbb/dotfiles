@@ -17,8 +17,8 @@
 [alias]
 	co = checkout
 	st = status
-	sw = sw
-	pu = pu
+	sw = switch
 	pu = pull
+	pp = push
 [push]
- autoSetupRemote = true
+	autoSetupRemote = true
