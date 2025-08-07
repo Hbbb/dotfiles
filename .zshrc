@@ -32,6 +32,8 @@ export FZF_CTRL_T_COMMAND='fd --strip-cwd-prefix'
 
 # Convenience paths
 export CONFIG_DIR="$HOME/.config"
+export LOCAL_DIR="$HOME/.local"
+export OBSIDIAN_VAULT_PATH="$HOME/Documents/brain"
 
 # Convenience aliases =========================================================
 alias l="ls -Ah"
@@ -65,7 +67,7 @@ source <(fzf --zsh)
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Obsidian  ===============================================================
-export OBSIDIAN_VAULT_PATH=/Users/hborges/Documents/farmers-dog-brain
+
 daily() {
 	local today_note="$OBSIDIAN_VAULT_PATH/daily/$(date +%F).md"
 	[ -f $today_note ] || touch $today_note
@@ -77,7 +79,7 @@ daily() {
 # Random stuff ===============================================================
 
 # I think this is a uv thing. I actually don't know
-. "$HOME/.local/bin/env"
+[[ -f "$HOME/.local/bin/env" ]] &&  . "$HOME/.local/bin/env"
 
 # Load in 'extra' zshrc configs 
 for extra in "$CONFIG_DIR"/zsh/{secrets,work}.zsh(N); do
