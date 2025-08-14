@@ -48,6 +48,7 @@ alias grep="grep --color=auto"
 alias ssh="TERM=xterm-256color ssh"
 alias markers="ag 'TODO:|FIXME:|XXX:' "
 alias g="git"
+alias gst="git status"
 alias tf="terraform"
 
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
