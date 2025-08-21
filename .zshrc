@@ -67,6 +67,9 @@ source <(fzf --zsh)
 # Add ASDF shims to path
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+# Add ~/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # Obsidian  ===============================================================
 
 daily() {
