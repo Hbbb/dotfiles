@@ -1,8 +1,8 @@
 # History =====================================================================
 # Docs: https://zsh.sourceforge.io/Doc/Release/Options.html#History
-export HISTFILE=~/.local/share/zsh/history
-export SAVEHIST=100000 # Max entries saved to file.
-export HISTSIZE=100000 # Max entires for in-memory history.
+HISTFILE=~/.local/share/zsh/history
+SAVEHIST=100000 # Max entries saved to file.
+HISTSIZE=100000 # Max entires for in-memory history.
 
 setopt hist_ignore_dups  # Collapse two consecutive idential commands.
 setopt hist_find_no_dups  # Ignore duplicates when searching history.
@@ -10,6 +10,7 @@ setopt share_history  # Share across concurrent sessions (append immediately, re
 setopt hist_ignore_space  # Lines that begin with space are not recorded.
 setopt hist_verify  # Don't auto-execute selected history entry.
 setopt hist_ignore_all_dups  # If a history entry would be duplicate, delete older copies.
+setopt inc_append_history # immediately append commands to the history file
 
 # General settings ===========================================================
 
