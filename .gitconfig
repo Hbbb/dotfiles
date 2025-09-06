@@ -23,3 +23,5 @@
 	pp = push
 [push]
 	autoSetupRemote = true
+[pull]
+	rebase = true
