@@ -12,3 +12,10 @@ select = "underline"
 [keys.normal]
 "C-e" = ["goto_line_end_newline", "insert_mode"]
 "C-a" = ["goto_line_start", "insert_mode"]
+"C-y" = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw'
+]
