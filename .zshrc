@@ -88,6 +88,6 @@ daily() {
 [[ -f "$HOME/.local/bin/env" ]] &&  . "$HOME/.local/bin/env"
 
 # Load in 'extra' zshrc configs 
-for extra in "$CONFIG_DIR"/zsh/{secrets,work}.zsh(N); do
+for extra in "$CONFIG_DIR"/zsh/.zshrc.{secrets,work}(N); do
   source "$extra"
 done
