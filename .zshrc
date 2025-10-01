@@ -35,7 +35,7 @@ export FZF_CTRL_T_COMMAND='fd --strip-cwd-prefix'
 export CONFIG_DIR="$HOME/.config"
 export LOCAL_DIR="$HOME/.local"
 export OBSIDIAN_VAULT_PATH="$HOME/Documents/brain"
-export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # Convenience aliases =========================================================
 alias l="ls -Ah"
