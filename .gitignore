@@ -32,3 +32,6 @@ yarn-error.log
 
 # AI Stuff
 .claude
+
+# Go stuff
+__debug_bin*
