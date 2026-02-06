@@ -7,11 +7,6 @@
 	navigate = true # use n and N to move between diff sections
 [merge]
 	conflictstyle = zdiff3
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 [user]
 	name = Harrison B
 	email = hborges005@gmail.com
