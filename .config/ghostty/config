@@ -43,5 +43,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 keybind = shift+enter=text:\n
-# theme = dark:catppuccin-frappe,light:catppuccin-latte
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
 font-size=16
+shell-integration = zsh
+auto-update-channel = tip
