@@ -2,7 +2,20 @@
 name = "markdown"
 file-types = ["mdc", "md"]
 soft-wrap.enable = true
+language-servers = [ "marksman" ] # you might want more LSPs in here
+auto-format = true # optional, enable format-on-save
+comment-tokens = ["-", "+", "*", "- [ ]", ">"]
 
 [[language]]
 name = "dart"
 formatter = { command="dart", args=["format"] }
+
+[language-server.templ]
+command = "templ"
+args = ["lsp"]
+
+[[language]]
+name = "templ"
+file-types = ["tmpl", "templ"]
+soft-wrap.enable = true
+language-servers =  ["templ"]
