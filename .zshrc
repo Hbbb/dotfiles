@@ -105,3 +105,5 @@ install-go-tools() {
 for extra in "$CONFIG_DIR"/zsh/.zshrc.{secrets,work}(N); do
   source "$extra"
 done
+
+eval "$(mise activate zsh)"

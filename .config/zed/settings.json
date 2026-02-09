@@ -7,65 +7,105 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-	"icon_theme": "Catppuccin Latte",
+	"features": {
+  "edit_prediction_provider": "zed"
+ },
+ "agent_servers": {
+		"claude": {
+			"default_model": "claude code",
+			"default_mode": "default",
+		},
+	},
+	"tab_bar": {
+		"show_tab_bar_buttons": true,
+	},
+	"tabs": {
+		"show_diagnostics": "errors",
+		"close_position": "right",
+		"file_icons": true,
+		"git_status": true,
+	},
+	"use_system_window_tabs": false,
+	"git_panel": {
+		"tree_view": false,
+	},
+	"colorize_brackets": true,
+	"base_keymap": "VSCode",
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false,
+	},
+	"agent_buffer_font_size": 15.0,
+	"agent_ui_font_size": 17.0,
+	"ui_font_weight": 500.0,
+	"ui_font_family": "JetBrains Mono",
+	"buffer_line_height": "comfortable",
+	"sticky_scroll": {
+		"enabled": true,
+	},
+	"icon_theme": {
+		"mode": "system",
+		"light": "Catppuccin Latte",
+		"dark": "Catppuccin Latte",
+	},
 	"edit_predictions": {
 		"disabled_globs": ["*.mdc", "*.md"],
 		"mode": "subtle",
 		"copilot": {
 			"proxy": null,
-			"proxy_no_verify": null
+			"proxy_no_verify": null,
 		},
-		"enabled_in_text_threads": false
+		"enabled_in_text_threads": false,
 	},
 	"show_edit_predictions": true,
 	"autosave": "on_focus_change",
 	"agent": {
+		"use_modifier_to_send": false,
+		"enable_feedback": false,
 		"always_allow_tool_actions": true,
-		"default_profile": "write",
-		"default_model": {
-			"provider": "zed.dev",
-			"model": "claude-sonnet-4-thinking"
-		}
 	},
 	"vim_mode": true,
-	"helix_mode": false,
+	"helix_mode": true,
 	"vim": {
 		"use_system_clipboard": "on_yank",
 		"cursor_shape": {
 			"normal": "block",
 			"insert": "bar",
 			"visual": "underline",
-			"replace": "hollow"
-		}
+			"replace": "hollow",
+		},
 	},
 	"ui_font_size": 16,
 	"buffer_font_size": 15,
-	"buffer_font_family": "JetBrains Mono",
+	"buffer_font_family": ".ZedMono",
 	"git": {
 		"git_gutter": null,
 		"gutter_debounce": null,
 		"inline_blame": {
-			"enabled": false
-		}
+			"enabled": false,
+		},
 	},
 	"theme": {
 		"mode": "system",
-		"light": "One Light",
-		"dark": "Ayu Dark"
+		"light": "Catppuccin Latte",
+		"dark": "Catppuccin Mocha",
 	},
 	"hard_tabs": true,
 	"journal": {
-		"path": "~"
+		"path": "~",
 	},
 	"languages": {
 		"Swift": {
 			"enable_language_server": true,
 			"language_servers": ["sourcekit-lsp"],
 			"formatter": "language_server",
-			"format_on_save": "on"
+			"format_on_save": "on",
 		},
 		"YAML": {
-			"hard_tabs": false
-		}
-	}
+			"hard_tabs": false,
+		},
+	},
+	"which_key": {
+		"enabled": true,
+	},
 }

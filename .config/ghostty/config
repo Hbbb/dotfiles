@@ -44,10 +44,13 @@
 # resize-overlay-duration = 4s 200ms
 
 keybind = shift+enter=text:\n
-keybind = global:cmd+ctrl+grave_accent=toggle_quick_terminal
-
 theme = light:Catppuccin Latte,dark:Catppuccin Frappe
 font-size=16
 shell-integration = zsh
 auto-update-channel = tip
 quick-terminal-position = bottom
+shell-integration-features = cursor,sudo,title
+keybind = global:ctrl+cmd+grave_accent=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-animation-duration = 0.1
+quick-terminal-autohide = true
