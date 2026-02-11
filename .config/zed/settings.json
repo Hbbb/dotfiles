@@ -7,10 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-	"features": {
-  "edit_prediction_provider": "zed"
- },
- "agent_servers": {
+	"agent_servers": {
 		"claude": {
 			"default_model": "claude code",
 			"default_mode": "default",
@@ -49,7 +46,8 @@
 		"dark": "Catppuccin Latte",
 	},
 	"edit_predictions": {
-		"disabled_globs": ["*.mdc", "*.md"],
+		"provider": "zed",
+  "disabled_globs": ["*.mdc", "*.md"],
 		"mode": "subtle",
 		"copilot": {
 			"proxy": null,

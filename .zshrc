@@ -71,6 +71,10 @@ if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
+if command -v brew >/dev/null 2>&1; then
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+fi
+
 # -----------------------------------------------------------------------------
 # Functions
 # -----------------------------------------------------------------------------
@@ -106,4 +110,3 @@ for extra in "$CONFIG_DIR"/zsh/.zshrc.{secrets,work}(N); do
   source "$extra"
 done
 
-eval "$(mise activate zsh)"
