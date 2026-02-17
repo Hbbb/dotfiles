@@ -21,7 +21,8 @@ export MANWIDTH=92
 
 export CONFIG_DIR="$HOME/.config"
 export LOCAL_DIR="$HOME/.local"
-export OBSIDIAN_VAULT_PATH="$HOME/Documents/brain"
+export OBSIDIAN_VAULT_NAME="brain"
+export OBSIDIAN_VAULT_PATH="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain"
 export GOBIN="$HOME/.local/bin"
 
 # FZF config
@@ -78,13 +79,6 @@ fi
 # -----------------------------------------------------------------------------
 # Functions
 # -----------------------------------------------------------------------------
-daily() {
-  local today_note="$OBSIDIAN_VAULT_PATH/daily/$(date +%F).md"
-  mkdir -p "$(dirname "$today_note")"
-  [ -f "$today_note" ] || touch "$today_note"
-  hx "$today_note"
-}
-
 install-go-tools() {
   local tools=(
     "golang.org/x/tools/gopls@latest"
@@ -100,6 +94,24 @@ install-go-tools() {
     go install "$t"
   done
 }
+
+_obsidian_last_line() {
+  # Obsidian CLI can print startup noise; keep the last non-empty line
+  obsidian "$@" 2>/dev/null | awk 'NF{last=$0} END{print last}'
+}
+
+daily() {
+  local root rel
+  root="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" vault info=path)" || return 1
+  rel="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" daily silent)" || return 1
+
+  [ -n "$root" ] || { echo "Could not resolve vault path"; return 1; }
+  [ -n "$rel" ]  || { echo "Could not resolve daily note path"; return 1; }
+
+  ( cd "$root" || return 1; hx -- "$rel" )
+}
+
+
 
 # -----------------------------------------------------------------------------
 # Local Overrides
