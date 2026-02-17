@@ -1,10 +1,11 @@
 [[language]]
 name = "markdown"
-language-servers = ["marksman"] #, "harper-ls", "rumdl"]
-file-types = ["mdc", "md"]
-soft-wrap.enable = true
+file-types = ["mdc", "md", "mdx"]
+#language-servers = [ "marksman" ]
+language-servers = [ "markdown-oxide" ]
 auto-format = true # optional, enable format-on-save
 comment-tokens = ["-", "+", "*", "- [ ]", ">"]
+soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
 text-width = 80
 
