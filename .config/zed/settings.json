@@ -85,8 +85,8 @@
 	},
 	"theme": {
 		"mode": "system",
-		"light": "Catppuccin Latte",
-		"dark": "Kanso Ink (No italics)",
+		"light": "Kanso Pearl (No italics)",
+		"dark": "Kanso Mist (No italics)",
 	},
 	"hard_tabs": true,
 	"journal": {
