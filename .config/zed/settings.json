@@ -58,9 +58,11 @@
 	"show_edit_predictions": true,
 	"autosave": "on_focus_change",
 	"agent": {
-		"use_modifier_to_send": false,
+		"tool_permissions": {
+   "default": "allow"
+  },
+  "use_modifier_to_send": false,
 		"enable_feedback": false,
-		"always_allow_tool_actions": true,
 	},
 	"vim_mode": true,
 	"helix_mode": true,
@@ -85,7 +87,7 @@
 	},
 	"theme": {
 		"mode": "system",
-		"light": "Kanso Pearl (No italics)",
+		"light": "Catppuccin Latte - No Italics",
 		"dark": "Kanso Mist (No italics)",
 	},
 	"hard_tabs": true,

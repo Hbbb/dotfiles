@@ -26,6 +26,14 @@ right = ["diagnostics", "version-control", "selections", "position", "file-type"
 [keys.normal]
 "C-e" = ["goto_line_end_newline", "insert_mode"]
 "C-a" = ["goto_line_start", "insert_mode"]
+D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
+C = ["ensure_selections_forward", "extend_to_line_end", "change_selection"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"
+V = ["select_mode", "extend_to_line_bounds"]
+";" = "repeat_last_motion"
 "C-y" = [
   ':sh rm -f /tmp/unique-file',
   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
@@ -35,3 +43,11 @@ right = ["diagnostics", "version-control", "selections", "position", "file-type"
 ]
 "X" = ["extend_line_up", "extend_to_line_bounds"]
 
+[keys.select]
+"C-a" = "goto_line_start"
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"
+k = ["extend_line_up", "extend_to_line_bounds"]
+j = ["extend_line_down", "extend_to_line_bounds"]
