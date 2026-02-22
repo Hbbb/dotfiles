@@ -103,7 +103,7 @@ _obsidian_last_line() {
 daily() {
   local root rel
   root="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" vault info=path)" || return 1
-  rel="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" daily silent)" || return 1
+  rel="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" daily:path)" || return 1
 
   [ -n "$root" ] || { echo "Could not resolve vault path"; return 1; }
   [ -n "$rel" ]  || { echo "Could not resolve daily note path"; return 1; }
