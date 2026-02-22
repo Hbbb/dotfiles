@@ -35,7 +35,7 @@
 	"agent_buffer_font_size": 15.0,
 	"agent_ui_font_size": 17.0,
 	"ui_font_weight": 500.0,
-	"ui_font_family": "JetBrains Mono",
+	"ui_font_family": ".ZedMono",
 	"buffer_line_height": "comfortable",
 	"sticky_scroll": {
 		"enabled": true,
@@ -86,7 +86,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "Catppuccin Latte",
-		"dark": "Catppuccin Mocha",
+		"dark": "Kanso Ink (No italics)",
 	},
 	"hard_tabs": true,
 	"journal": {
