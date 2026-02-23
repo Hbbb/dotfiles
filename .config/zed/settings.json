@@ -47,7 +47,7 @@
 	},
 	"edit_predictions": {
 		"provider": "zed",
-  "disabled_globs": ["*.mdc", "*.md"],
+		"disabled_globs": ["*.mdc", "*.md"],
 		"mode": "subtle",
 		"copilot": {
 			"proxy": null,
@@ -59,9 +59,9 @@
 	"autosave": "on_focus_change",
 	"agent": {
 		"tool_permissions": {
-   "default": "allow"
-  },
-  "use_modifier_to_send": false,
+			"default": "allow",
+		},
+		"use_modifier_to_send": false,
 		"enable_feedback": false,
 	},
 	"vim_mode": true,
@@ -87,7 +87,7 @@
 	},
 	"theme": {
 		"mode": "system",
-		"light": "Catppuccin Latte - No Italics",
+		"light": "Kanso Pearl (Borderless + No italics)",
 		"dark": "Kanso Mist (No italics)",
 	},
 	"hard_tabs": true,
@@ -104,8 +104,65 @@
 		"YAML": {
 			"hard_tabs": false,
 		},
+		"Markdown": {
+			"soft_wrap": "preferred_line_length",
+			"preferred_line_length": 72,
+			"format_on_save": "off",
+		},
 	},
 	"which_key": {
 		"enabled": true,
+	},
+	"profiles": {
+		"Writing": {
+			"buffer_font_family": "iA Writer Duo S",
+			"buffer_font_size": 16,
+			"buffer_font_weight": 450,
+			"buffer_line_height": {
+				"custom": 1.45,
+			},
+
+			"scrollbar": {
+				"show": "never",
+			},
+
+			"soft_wrap": "preferred_line_length",
+			"preferred_line_length": 72,
+			"show_wrap_guides": false,
+
+			"current_line_highlight": "none",
+			"show_whitespaces": "none",
+			"indent_guides": {
+				"enabled": false,
+			},
+
+			"gutter": {
+				"line_numbers": false,
+				"runnables": false,
+				"breakpoints": false,
+				"folds": false,
+				"min_line_number_digits": 1,
+			},
+
+			"tab_bar": {
+				"show": true,
+				"show_nav_history_buttons": false,
+				"show_tab_bar_buttons": false,
+			},
+
+			"toolbar": {
+				"breadcrumbs": false,
+				"quick_actions": false,
+				"selections_menu": false,
+				"agent_review": false,
+				"code_actions": false,
+			},
+
+			"scroll_beyond_last_line": "one_page",
+			"centered_layout": {
+				// "left_padding": 0.22,
+				// "right_padding": 0.22,
+			},
+		},
 	},
 }
