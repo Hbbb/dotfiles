@@ -122,6 +122,8 @@
 				"custom": 1.45,
 			},
 
+			"theme": "Catppuccin Latte - No Italics",
+
 			"scrollbar": {
 				"show": "never",
 			},
