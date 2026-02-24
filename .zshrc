@@ -95,20 +95,43 @@ install-go-tools() {
   done
 }
 
-_obsidian_last_line() {
-  # Obsidian CLI can print startup noise; keep the last non-empty line
-  obsidian "$@" 2>/dev/null | awk 'NF{last=$0} END{print last}'
-}
-
 daily() {
-  local root rel
-  root="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" vault info=path)" || return 1
-  rel="$(_obsidian_last_line vault="$OBSIDIAN_VAULT_NAME" daily:path)" || return 1
+  local vault settings folder template rel abs tpl month
 
-  [ -n "$root" ] || { echo "Could not resolve vault path"; return 1; }
-  [ -n "$rel" ]  || { echo "Could not resolve daily note path"; return 1; }
+  vault="${OBSIDIAN_VAULT_PATH}"
+  settings="$vault/.obsidian/daily-notes.json"
+  folder="journal/daily"
+  template=""
 
-  ( cd "$root" || return 1; hx -- "$rel" )
+  [ -n "$vault" ] || { echo "Missing OBSIDIAN_VAULT_PATH"; return 1; }
+
+  if command -v jq >/dev/null 2>&1 && [ -f "$settings" ]; then
+    folder="$(jq -r '.folder // "journal/daily"' "$settings")"
+    template="$(jq -r '.template // empty' "$settings")"
+  fi
+
+  rel="$folder/$(date +'%Y-%m-%d %A').md"
+  abs="$vault/$rel"
+
+  mkdir -p "${abs:h}" || return 1
+
+  if [ ! -f "$abs" ]; then
+    if [ -n "$template" ]; then
+      tpl="$vault/$template"
+      [ -f "$tpl" ] || tpl="$vault/$template.md"
+
+      if [ -f "$tpl" ]; then
+        month="$(date +%Y-%m)"
+        sed "s/{{date:YYYY-MM}}/$month/g" "$tpl" > "$abs"
+      else
+        : > "$abs"
+      fi
+    else
+      : > "$abs"
+    fi
+  fi
+
+  hx -- "$abs"
 }
 
 
@@ -121,4 +144,3 @@ daily() {
 for extra in "$CONFIG_DIR"/zsh/.zshrc.{secrets,work}(N); do
   source "$extra"
 done
-
