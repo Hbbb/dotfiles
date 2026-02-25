@@ -110,7 +110,7 @@ daily() {
     template="$(jq -r '.template // empty' "$settings")"
   fi
 
-  rel="$folder/$(date +'%Y-%m-%d %A').md"
+  rel="$folder/$(date +'%Y-%m-%d').md"
   abs="$vault/$rel"
 
   mkdir -p "${abs:h}" || return 1
@@ -131,7 +131,11 @@ daily() {
     fi
   fi
 
-  hx -- "$abs"
+  if [ "$1" = "--print" ]; then
+    echo "$abs"
+  else
+    ${EDITOR:-hx} -- "$abs"
+  fi
 }
 
 
