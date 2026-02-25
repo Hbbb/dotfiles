@@ -56,4 +56,5 @@ quick-terminal-animation-duration = 0.1
 quick-terminal-autohide = true
 adjust-cursor-thickness = 5
 cursor-color = #00c6ff
+fullscreen = non-native
 
