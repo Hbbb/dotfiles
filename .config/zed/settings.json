@@ -87,7 +87,7 @@
 	},
 	"theme": {
 		"mode": "system",
-		"light": "Kanso Pearl (Borderless + No italics)",
+		"light": "Kanso Pearl (No italics)",
 		"dark": "Kanso Mist (No italics)",
 	},
 	"hard_tabs": true,
