@@ -34,6 +34,8 @@ brew "uv"
 brew "wget"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# markdown LSP for obsidian-like functionality
+brew "markdown-oxide"
 
 # Apps
 cask "1password"
