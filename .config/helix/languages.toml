@@ -29,11 +29,6 @@ name        = "toml"
 auto-format = true
 
 [[language]]
-name        = "hcl"
-formatter   = { command = "terraform", args = ["fmt", "-"] }
-auto-format = true
-
-[[language]]
 name             = "typescript"
 language-servers = ["tsgo"]
 
@@ -48,13 +43,6 @@ language-servers = ["tsgo"]
 [[language]]
 name             = "jsx"
 language-servers = ["tsgo"]
-args             = ["server"]
-
-[[language]]
-name        = "hcl"
-formatter   = { command = "terraform", args = ["fmt", "-"] }
-auto-format = true
-args        = ["server"]
 
 [language-server.templ]
 command = "templ"
