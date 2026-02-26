@@ -1,57 +1,73 @@
 [[language]]
-name = "markdown"
-file-types = ["mdc", "md", "mdx"]
-#language-servers = [ "marksman" ]
-language-servers = [ "markdown-oxide" ]
-auto-format = true # optional, enable format-on-save
-comment-tokens = ["-", "+", "*", "- [ ]", ">"]
-soft-wrap.enable = true
+name                         = "markdown"
+file-types                   = ["mdc", "md", "mdx"]
+# language-servers = [ "marksman" ]
+language-servers             = ["markdown-oxide", "marksman"]
+auto-format                  = true  # optional, enable format-on-save
+comment-tokens               = ["-", "+", "*", "- [ ]", ">"]
+soft-wrap.enable             = true
 soft-wrap.wrap-at-text-width = true
-text-width = 80
+text-width                   = 80
 
 [[language]]
-name = "dart"
-formatter = { command="dart", args=["format"] }
+name      = "dart"
+formatter = { command = "dart", args = ["format"] }
+
+[[language]]
+name             = "templ"
+file-types       = ["tmpl", "templ"]
+soft-wrap.enable = true
+language-servers = ["templ"]
+
+[[language]]
+name        = "hcl"
+formatter   = { command = "terraform", args = ["fmt", "-"] }
+auto-format = true
+
+[[language]]
+name        = "toml"
+auto-format = true
+
+[[language]]
+name        = "hcl"
+formatter   = { command = "terraform", args = ["fmt", "-"] }
+auto-format = true
+
+[[language]]
+name             = "typescript"
+language-servers = ["tsgo"]
+
+[[language]]
+name             = "tsx"
+language-servers = ["tsgo"]
+
+[[language]]
+name             = "javascript"
+language-servers = ["tsgo"]
+
+[[language]]
+name             = "jsx"
+language-servers = ["tsgo"]
+args             = ["server"]
+
+[[language]]
+name        = "hcl"
+formatter   = { command = "terraform", args = ["fmt", "-"] }
+auto-format = true
+args        = ["server"]
 
 [language-server.templ]
 command = "templ"
-args = ["lsp"]
-
-[[language]]
-name = "templ"
-file-types = ["tmpl", "templ"]
-soft-wrap.enable = true
-language-servers =  ["templ"]
+args    = ["lsp"]
 
 [language-server.harper-ls]
 command = "harper-ls"
-args = ["--stdio"]
+args    = ["--stdio"]
 
 [language-server.rumdl]
 command = "rumdl"
-args = ["server"]
-
-[[language]]
-name = "hcl"
-formatter = { command = "terraform", args = ["fmt", "-"] }
-auto-format = true
+args    = ["server"]
 
 [language-server.tsgo]
 command = "tsgo"
-args = ["--lsp", "--stdio"]
-
-[[language]]
-name = "typescript"
-language-servers = ["tsgo"]
-
-[[language]]
-name = "tsx"
-language-servers = ["tsgo"]
-
-[[language]]
-name = "javascript"
-language-servers = ["tsgo"]
-
-[[language]]
-name = "jsx"
-language-servers = ["tsgo"]
+args    = ["--lsp", "--stdio"]

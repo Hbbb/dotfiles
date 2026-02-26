@@ -1,7 +1,9 @@
 theme = "catppuccin_macchiato"
 
-[editor.file-picker]
-hidden = false
+[editor]
+bufferline = "always"
+cursorline = true
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -9,45 +11,55 @@ normal = "block"
 select = "underline"
 
 [editor.lsp]
-display-inlay-hints = true
-
-[editor]
-bufferline = "always"
+display-inlay-hints = false
+display-messages    = true
 
 [editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
-right = ["diagnostics", "version-control", "selections", "position", "file-type"]
+left   = ["file-name", "spinner"]
+center = ["version-control"]
+right  = ["diagnostics", "selections", "position", "file-type"]
 
 [keys.insert]
-"C-e" = ["normal_mode", "goto_line_end_newline", "insert_mode"]
-"C-a" = ["normal_mode", "goto_line_start", "insert_mode"]
+C-e   = ["normal_mode", "goto_line_end_newline", "insert_mode"]
+C-a   = ["normal_mode", "goto_line_start", "insert_mode"]
+S-tab = "unindent"
 
 [keys.normal]
-"C-e" = ["goto_line_end_newline", "insert_mode"]
-"C-a" = ["goto_line_start", "insert_mode"]
-D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
-C = ["ensure_selections_forward", "extend_to_line_end", "change_selection"]
-0 = "goto_line_start"
-"$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
-G = "goto_file_end"
-V = ["select_mode", "extend_to_line_bounds"]
-";" = "repeat_last_motion"
-"C-y" = [
-  ':sh rm -f /tmp/unique-file',
-  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
-  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
-  ':open %sh{cat /tmp/unique-file}',
-  ':redraw'
+0       = "goto_line_start"
+C       = [
+  "ensure_selections_forward",
+  "extend_to_line_end",
+  "change_selection"
 ]
-"X" = ["extend_line_up", "extend_to_line_bounds"]
+D       = [
+  "ensure_selections_forward",
+  "extend_to_line_end",
+  "delete_selection"
+]
+G       = "goto_file_end"
+V       = ["select_mode", "extend_to_line_bounds"]
+X       = ["extend_line_up", "extend_to_line_bounds"]
+";"     = "repeat_last_motion"
+"#"     = "toggle_comments"
+"^"     = "goto_first_nonwhitespace"
+"$"     = "goto_line_end"
+"space" = { "q" = ":buffer-close", m = ":set-language markdown" }
+C-a     = ["goto_line_start", "insert_mode"]
+C-e     = ["goto_line_end_newline", "insert_mode"]
+C-q     = ":quit!"
+C-y     = [
+  ":sh rm -f /tmp/unique-file",
+  ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file",
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ":open %sh{cat /tmp/unique-file}",
+  ":redraw"
+]
 
 [keys.select]
-"C-a" = "goto_line_start"
-0 = "goto_line_start"
-"$" = "goto_line_end"
+0   = "goto_line_start"
+G   = "goto_file_end"
+j   = ["extend_line_down", "extend_to_line_bounds"]
+k   = ["extend_line_up", "extend_to_line_bounds"]
 "^" = "goto_first_nonwhitespace"
-G = "goto_file_end"
-k = ["extend_line_up", "extend_to_line_bounds"]
-j = ["extend_line_down", "extend_to_line_bounds"]
+"$" = "goto_line_end"
+C-a = "goto_line_start"
